@@ -47,6 +47,21 @@
     //localStorage.setItem(obj.d,JSON.stringify(obj))
    
 }
+
+window.addEventListener("DOMContentLoaded",()=>{
+axios.get("https://crudcrud.com/api/2c99fa41b8aa4112a3d366f7ae64131b/appointmentData")
+.then((response)=>{
+    console.log(response)
+    for(var i=0;i<response.data.length;i++)
+    {
+        showDetails(response.data[i])
+    }
+})
+.catch((err)=>{
+    console.log(err)
+})
+
+})
 function showDetails(obj){
 const p=document.getElementById('print')
 const c=document.createElement('li')
